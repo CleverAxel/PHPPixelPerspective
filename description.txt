@@ -1,0 +1,24 @@
+Il faudrait une table (avec un nom du style "people", peu importe comme tu veux) dans la base de donnée de ce style :
+Avoir une colonne pour les coordonnées X
+Avoir une colonne pour les coordonnées Y
+Avoir une colonne pour le nom à rechercher (doit être unique, ça sera l'identifiant de chaque personne)
+
+
+Avoir une URL de ce style =>
+"www.site.be/getcoordinate.php/?name=NOM_A_RECHERCHER"
+
+Dans le fichier "getcoordinate.php"
+Récupérer le query parameter "name" pour récupérer le nom à trouver. ($_GET["name"])
+
+Ensuite récupérer dans la base de donnée les coordonnées et les renvoyer basé sur le nom récupérer via la globale $_GET.
+
+-----------------------------------------------------------------------------------------------
+
+Avoir une URL de ce style =>
+"www.site.be/storecoordinate.php/?x=X_COORDINATE&y=Y_COORDINATE&name=NOM"
+
+Dans le fichier "storecoordinate.php"
+Récupérer les query parameters "x", "x" et "name" via $_GET.
+
+Vérifier que le nom envoyé par la requête n'est pas déjà existant dans la DB si existant -> on arrête tout
+Si le nom est nouveau alors on peut insérer dans la base de donnée les coordonnées "x" , "y" ainsi que le nom.
